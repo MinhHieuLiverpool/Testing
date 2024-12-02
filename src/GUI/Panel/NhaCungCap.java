@@ -1,0 +1,265 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
+package GUI.Panel;
+
+import BUS.ChucNangBUS;
+import BUS.NhaCungCapBUS;
+import BUS.QuyenBUS;
+import DTO.CTQuyenDTO;
+import DTO.ChucNangDTO;
+import DTO.NhaCungCapDTO;
+import DTO.TaiKhoanDTO;
+import GUI.Component.SearchBar;
+import GUI.Component.ToolBarButton;
+import GUI.Dialog.NhaCungCapDialog;
+import GUI.Main;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
+import helper.JTableExporter;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ *
+ * @author Admin
+ */
+public class NhaCungCap extends javax.swing.JPanel implements ActionListener {
+
+    public final NhaCungCapBUS nccBUS = new NhaCungCapBUS();
+    public ArrayList<NhaCungCapDTO> nhaCungCapList = nccBUS.getAll();
+    private Main main;
+    
+    private TaiKhoanDTO taiKhoan;
+    
+    public QuyenBUS qBUS = new QuyenBUS();
+    public ArrayList<CTQuyenDTO> ctqList;
+    public ChucNangBUS cnBUS = new ChucNangBUS();
+    public ArrayList<ChucNangDTO> cnList = cnBUS.getAll();
+    
+    private DefaultTableModel tableModel;
+    public SearchBar searchBar;
+    ToolBarButton chiTietBtn = new ToolBarButton("Chi tiết", "toolBar_detail.svg", "detail");
+    ToolBarButton themBtn = new ToolBarButton("Thêm", "toolBar_add.svg", "add");
+    ToolBarButton suaBtn = new ToolBarButton("Sửa", "toolBar_edit.svg", "edit");
+    ToolBarButton xoaBtn = new ToolBarButton("Xóa", "toolBar_delete.svg", "delete");
+    public ToolBarButton exportBtn = new ToolBarButton("Xuất excel", "toolBar_export.svg", "export");
+    
+    /**
+     * Creates new form NhaCungCap
+     */
+    public NhaCungCap(Main main, TaiKhoanDTO taiKhoan) {
+        this.main = main;
+        this.taiKhoan = taiKhoan;
+        ctqList = qBUS.getCTQListById(taiKhoan.getIdQuyen());
+        initComponents();
+        initComponentsCustom();
+        loadDataToTable(nhaCungCapList);
+    }
+    
+    public void initComponentsCustom() {
+        searchBar = new SearchBar(new String[]{"Tất cả", "Mã", "Tên", "Địa chỉ", "Số điện thoại", "Email"});
+        searchBar.txtSearch.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyReleased(KeyEvent e) {
+                searchEvent();
+            }
+        });
+        searchBar.lamMoiBtn.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mousePressed(MouseEvent e) {
+                reloadEvent();
+            }
+        });
+        searchBar.cbxType.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
+                searchEvent();
+            }
+        });
+        topPanel.add(searchBar, BorderLayout.CENTER);
+        toolBar.add(chiTietBtn);
+        if(qBUS.checkQuyen(ctqList, 6, "add"))
+            toolBar.add(themBtn);
+        if(qBUS.checkQuyen(ctqList, 6, "edit"))
+            toolBar.add(suaBtn);
+//        if(qBUS.checkQuyen(ctqList, 6, "delete"))
+//            toolBar.add(xoaBtn);
+        chiTietBtn.addActionListener(this);
+        themBtn.addActionListener(this);
+        suaBtn.addActionListener(this);
+        xoaBtn.addActionListener(this);
+        toolBar.add(exportBtn);
+        exportBtn.addActionListener(this);
+        nccTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        tableModel = (DefaultTableModel) nccTable.getModel(); 
+    }
+    
+    public void loadDataToTable(ArrayList<NhaCungCapDTO> nccList ){
+        tableModel.setRowCount(0);
+        for(NhaCungCapDTO i : nccList) {
+            tableModel.addRow(new Object[] {i.getId(), i.getTen(), i.getDiaChi(), i.getSoDienThoai(), i.getEmail()});
+        }
+    }
+    
+    public int getSelectedRow() {
+        int index = nccTable.getSelectedRow();
+        if (index == -1) {
+            JOptionPane.showMessageDialog(main, "Bạn chưa chọn nhà cung cấp", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+        return index;
+    }
+    
+    public void searchEvent(){
+        String searchText = searchBar.txtSearch.getText();
+        loadDataToTable(nccBUS.search(searchText, (String) searchBar.cbxType.getSelectedItem()));
+    }
+    
+    public void reloadEvent(){
+        searchBar.txtSearch.setText("");
+        loadDataToTable(nhaCungCapList);
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        topPanel = new javax.swing.JPanel();
+        toolBar = new javax.swing.JToolBar();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        nccTable = new javax.swing.JTable();
+
+        setPreferredSize(new java.awt.Dimension(1030, 720));
+        setLayout(new java.awt.BorderLayout());
+
+        topPanel.setBackground(new java.awt.Color(255, 255, 255));
+        topPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 1, 0, new java.awt.Color(221, 221, 221)));
+        topPanel.setPreferredSize(new java.awt.Dimension(1030, 100));
+        topPanel.setLayout(new java.awt.BorderLayout());
+
+        toolBar.setBackground(new java.awt.Color(255, 255, 255));
+        toolBar.setRollover(true);
+        toolBar.setPreferredSize(new java.awt.Dimension(400, 100));
+        topPanel.add(toolBar, java.awt.BorderLayout.LINE_END);
+
+        add(topPanel, java.awt.BorderLayout.PAGE_START);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(1030, 620));
+
+        nccTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mã", "Tên", "Địa chỉ", "Số điện thoại", "Email"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        nccTable.setRowHeight(32);
+        nccTable.setSelectionBackground(new java.awt.Color(190, 215, 220));
+        nccTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        nccTable.setShowGrid(true);
+        nccTable.getTableHeader().setResizingAllowed(false);
+        nccTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(nccTable);
+        if (nccTable.getColumnModel().getColumnCount() > 0) {
+            nccTable.getColumnModel().getColumn(0).setResizable(false);
+            nccTable.getColumnModel().getColumn(0).setPreferredWidth(5);
+            nccTable.getColumnModel().getColumn(1).setResizable(false);
+            nccTable.getColumnModel().getColumn(2).setResizable(false);
+            nccTable.getColumnModel().getColumn(3).setResizable(false);
+            nccTable.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+        );
+
+        add(jPanel1, java.awt.BorderLayout.CENTER);
+    }// </editor-fold>//GEN-END:initComponents
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable nccTable;
+    private javax.swing.JToolBar toolBar;
+    private javax.swing.JPanel topPanel;
+    // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == chiTietBtn) {            
+            int index = getSelectedRow();
+            if(index != -1){
+                NhaCungCapDialog nccDialog = new NhaCungCapDialog(main, true, this, nhaCungCapList.get(index), "detail");
+                nccDialog.setVisible(true);
+                loadDataToTable(nhaCungCapList);
+            }
+        }
+        if(e.getSource() == themBtn){
+                NhaCungCapDialog nccDialog = new NhaCungCapDialog(main, true, this, null, "add");
+                nccDialog.setVisible(true);
+                loadDataToTable(nhaCungCapList);
+
+        }
+        if(e.getSource() == xoaBtn){
+            int index = getSelectedRow();
+            if(index != -1){
+                if(JOptionPane.showConfirmDialog(main, "Bạn có chắc muốn xóa nhà cung cấp này không?", "", JOptionPane.YES_NO_OPTION) == 0){
+                    nccBUS.delete(nhaCungCapList.get(index));
+                }
+                loadDataToTable(nhaCungCapList);
+            }
+        }
+        if(e.getSource() == suaBtn){
+            int index = getSelectedRow();
+            if(index != -1){
+                NhaCungCapDialog nccDialog = new NhaCungCapDialog(main, true, this, nhaCungCapList.get(index), "edit");
+                nccDialog.setVisible(true);
+                loadDataToTable(nhaCungCapList);
+            }
+        }
+        
+        if(e.getSource() == exportBtn) {
+            try {
+                JTableExporter.exportJTableToExcel(nccTable);
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+        }
+        
+    }
+    
+}
