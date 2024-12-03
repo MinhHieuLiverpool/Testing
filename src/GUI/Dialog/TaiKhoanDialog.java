@@ -90,14 +90,14 @@ public class TaiKhoanDialog extends javax.swing.JDialog {
     }
     
     public boolean ValidateInput(){
-        if(Validator.isEmpty(txtTenTaiKhoan.getText())){
-            JOptionPane.showMessageDialog(this, "Ban chưa nhập tên tài khoản");
-            return false;
-        }
-        if(!Validator.isWord(txtTenTaiKhoan.getText())) {
-            JOptionPane.showMessageDialog(this, "Tên tài khoản không được chứa kí tự đặc biệt");
-            return false;
-        }
+//        if(Validator.isEmpty(txtTenTaiKhoan.getText())){
+//            JOptionPane.showMessageDialog(this, "Ban chưa nhập tên tài khoản");
+//            return false;
+//        }
+//        if(!Validator.isWord(txtTenTaiKhoan.getText())) {
+//            JOptionPane.showMessageDialog(this, "Tên tài khoản không được chứa kí tự đặc biệt");
+//            return false;
+//        }
         if(Validator.isEmpty(txtMatKhau.getText())){
             JOptionPane.showMessageDialog(this, "Ban chưa nhập mật khẩu tài khoản");
             return false;

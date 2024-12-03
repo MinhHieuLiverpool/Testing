@@ -136,6 +136,7 @@ public class NhanVien extends javax.swing.JPanel implements ActionListener {
     
     public void reloadEvent() {
         searchBar.txtSearch.setText("");
+         nhanVienList = nvBUS.getAll();
         loadDataToTable(nhanVienList);
     }
     
@@ -243,12 +244,14 @@ public class NhanVien extends javax.swing.JPanel implements ActionListener {
             if(index != -1) {
                 NhanVienDialog nvDialog = new NhanVienDialog(main, true, this, nhanVienList.get(index), "detail");
                 nvDialog.setVisible(true);
+                 nhanVienList = nvBUS.getAll();
                 loadDataToTable(nhanVienList);
             }
         }
         if(e.getSource() == themBtn) {
             NhanVienDialog nvDialog = new NhanVienDialog(main, true, this, null, "add");
             nvDialog.setVisible(true);
+             nhanVienList = nvBUS.getAll();
             loadDataToTable(nhanVienList);
         }
         if(e.getSource() == suaBtn) {            
@@ -256,6 +259,7 @@ public class NhanVien extends javax.swing.JPanel implements ActionListener {
             if(index != -1) {
                 NhanVienDialog nvDialog = new NhanVienDialog(main, true, this, nhanVienList.get(index), "edit");
                 nvDialog.setVisible(true);
+                 nhanVienList = nvBUS.getAll();
                 loadDataToTable(nhanVienList);
             }
         }
@@ -268,6 +272,7 @@ public class NhanVien extends javax.swing.JPanel implements ActionListener {
                     main.taiKhoan.tkList = TaiKhoanDAO.getInstance().selectAll();
                     main.taiKhoan.loadDataToTable(main.taiKhoan.tkList);
                 }
+                 nhanVienList = nvBUS.getAll();
                 loadDataToTable(nhanVienList);
                 JOptionPane.showMessageDialog(main, "Thôi việc nhân viên thành công");
             }

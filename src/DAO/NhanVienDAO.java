@@ -159,7 +159,7 @@ public class NhanVienDAO {
         return result;
     }
     
-    public int delete(int id) {
+    public int delete1(int id) {
         int result = 0;
         try {
             Connection conn = (Connection) DBConnector.getConnection();
@@ -175,4 +175,29 @@ public class NhanVienDAO {
         return result;
     }
     
+    public int delete(int id) {
+    int result = 0;
+    try {
+        // Kết nối cơ sở dữ liệu
+        Connection conn = (Connection) DBConnector.getConnection();
+        
+        // Truy vấn SQL chỉ cập nhật bảng `nhanvien`
+        String query = "UPDATE `nhanvien` SET `trangThai` = 0 WHERE `id` = ?";
+        PreparedStatement pst = (PreparedStatement) conn.prepareStatement(query);
+        
+        // Gán tham số cho truy vấn
+        pst.setInt(1, id);
+        
+        // Thực thi truy vấn
+        result = pst.executeUpdate();
+        
+        // Đóng kết nối
+        DBConnector.closeConnection(conn);
+    } catch (SQLException e) {
+        // In lỗi ra console
+        System.out.println(e);
+    }
+    return result;
+}
+
 }

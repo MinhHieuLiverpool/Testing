@@ -3,22 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/KiemThuPhanMem-main/test/BUS/TaiKhoanBUSTest.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/TestAPI/DeleteNhanVienHandler.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/GUI/Dialog/NhanVienDialog.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/TestAPI/GetNhanVienHandler.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/test/BUS/NhaCungCapBUSTest.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/BUS/HoaDonBUS.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/BUS/TaiKhoanBUS.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/GUI/Main.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/DTO/TaiKhoanDTO.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/BUS/NhanVienBUS.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/DAO/TaiKhoanDAO.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/TestAPI/UpdateNhanVienHandler.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/DAO/NhanVienDAO.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/GUI/Panel/HoaDon.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/BUS/NhaCungCapBUS.java</file>
-            <file>file:/D:/KiemThuPhanMem-main/src/TestAPI/AddNhanVienHandler.java</file>
+            <file>file:/C:/Users/ASUS%20Vivobook/Desktop/Testing/src/GUI/Login.java</file>
+            <file>file:/C:/Users/ASUS%20Vivobook/Desktop/Testing/src/BUS/NhanVienBUS.java</file>
+            <file>file:/C:/Users/ASUS%20Vivobook/Desktop/Testing/src/GUI/Panel/NhanVien.java</file>
         </group>
     </open-files>
 </project-private>

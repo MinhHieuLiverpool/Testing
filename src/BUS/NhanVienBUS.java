@@ -65,7 +65,7 @@ public class NhanVienBUS {
     
     public boolean delete(NhanVienDTO nv) {
         if(nvDAO.delete(nv.getId()) != 0) {
-//            nhanVienList.remove(nv);
+           nhanVienList.remove(nv);
             return true;
         }
         return false;
