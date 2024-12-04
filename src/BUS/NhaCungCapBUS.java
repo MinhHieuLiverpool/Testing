@@ -111,6 +111,7 @@ public class NhaCungCapBUS {
     // Tiến hành thêm nếu hợp lệ
     if (nccDAO.insert(newNCC) != 0) {
         nhaCungCapList.add(newNCC);
+        System.out.println("Thêm nhà cung cấp thành công");
         return true;
     }
     return false;
