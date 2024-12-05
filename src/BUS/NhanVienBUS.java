@@ -63,13 +63,20 @@ public class NhanVienBUS {
         return false;
     }
     
-    public boolean delete(NhanVienDTO nv) {
-        if(nvDAO.delete(nv.getId()) != 0) {
-           nhanVienList.remove(nv);
-            return true;
-        }
-        return false;
+  public boolean delete(NhanVienDTO nv) {
+    boolean exists = nvDAO.checkEmployeeExists(nv.getId()); // Kiểm tra một lần
+
+    if (!exists) { // Nếu nhân viên không tồn tại
+        nvDAO.delete(nv.getId()); // Gọi phương thức delete
+        return true;
+    } else { // Nếu nhân viên tồn tại
+        nvDAO.delete1(nv.getId()); // Gọi phương thức delete1
+        return true;
     }
+
+    
+}
+
     
 //    public ArrayList<NhanVienDTO> search(String text) {
 //        ArrayList<NhanVienDTO> result = new ArrayList<NhanVienDTO>();
