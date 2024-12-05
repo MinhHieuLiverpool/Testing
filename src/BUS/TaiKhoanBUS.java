@@ -45,36 +45,31 @@ public class TaiKhoanBUS {
     public boolean update(TaiKhoanDTO tk) {
     // Validation checks
     if (tk.getTenTaiKhoan() == null || tk.getTenTaiKhoan().trim().isEmpty()) {
-        System.out.println("Error: Username cannot be empty.");
+        
         return false;
     }
     if (tk.getMatKhau() == null || tk.getMatKhau().trim().isEmpty()) {
-        System.out.println("Error: Password cannot be empty.");
+        
         return false;
     }
     if (tk.getTenTaiKhoan().length() > 25) {
-        System.out.println("Error: Username cannot exceed 25 characters.");
+        
         return false;
     }
     if (tk.getMatKhau().length() > 25) {
-        System.out.println("Error: Password cannot exceed 25 characters.");
+        
         return false;
     }
     
     for (TaiKhoanDTO existingTk : tkList) {
         if (existingTk.getTenTaiKhoan().equalsIgnoreCase(tk.getTenTaiKhoan()) && existingTk.getId() != tk.getId()) {
-            System.out.println("Error: Username already exists in the system.");
             return false;
         }
     }
     
-//    if (tk.getIdQuyen() == 1) {
-//        System.out.println("Không thể thay đổi quyền của quản lí.");
-//        return false;
-//    }
-    // Update logic
     if (tkDAO.update(tk) != 0) {
         tkList.set(getIndexByID(tk.getId()), tk);
+        
         return true;
     }
     return false;
