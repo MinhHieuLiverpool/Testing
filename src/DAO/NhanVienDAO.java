@@ -199,5 +199,21 @@ public class NhanVienDAO {
     }
     return result;
 }
+public boolean checkEmployeeExists(int employeeId) {
+    String query = "SELECT COUNT(*) FROM taikhoan WHERE nhanVien_id = ?";
+    try (Connection connection = (Connection) DBConnector.getConnection();
+         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        
+        preparedStatement.setInt(1, employeeId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        
+        if (resultSet.next()) {
+            return resultSet.getInt(1) > 0; // Nếu COUNT > 0 nghĩa là mã nhân viên tồn tại
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return false; // Trả về false nếu có lỗi hoặc không tồn tại
+}
 
 }

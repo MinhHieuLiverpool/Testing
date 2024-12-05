@@ -272,7 +272,7 @@ public class NhanVien extends javax.swing.JPanel implements ActionListener {
                     main.taiKhoan.tkList = TaiKhoanDAO.getInstance().selectAll();
                     main.taiKhoan.loadDataToTable(main.taiKhoan.tkList);
                 }
-                 nhanVienList = nvBUS.getAll();
+                nhanVienList = nvBUS.getAll();
                 loadDataToTable(nhanVienList);
                 JOptionPane.showMessageDialog(main, "Thôi việc nhân viên thành công");
             }
