@@ -7,6 +7,7 @@ package BUS;
 import DAO.TaiKhoanDAO;
 import DTO.TaiKhoanDTO;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,7 +54,6 @@ public class TaiKhoanBUS {
         return false;
     }
     if (tk.getTenTaiKhoan().length() > 25) {
-        
         return false;
     }
     if (tk.getMatKhau().length() > 25) {

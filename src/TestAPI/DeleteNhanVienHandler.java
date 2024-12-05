@@ -52,7 +52,7 @@ public class DeleteNhanVienHandler implements HttpHandler {
             boolean isDeleted = nvBUS.delete(nhanVien);
 
             if (isDeleted) {
-                String successResponse = "Xóa nhân viên với ID " + id + " thành công!";
+                String successResponse = "Cho nghỉ việc nhân viên với ID " + id + " thành công!";
                 exchange.sendResponseHeaders(200, successResponse.getBytes().length);
                 try (OutputStream os = exchange.getResponseBody()) {
                     os.write(successResponse.getBytes());

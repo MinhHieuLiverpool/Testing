@@ -3,13 +3,54 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Testing/test/BUS/NhaCungCapBUSTest.java</file>
-            <file>file:/C:/Testing/src/DTO/TaiKhoanDTO.java</file>
-            <file>file:/C:/Testing/test/BUS/TaiKhoanBUSTest.java</file>
+            <file>file:/C:/Testing/src/BUS/CTSanPhamBUS.java</file>
+            <file>file:/C:/Testing/src/DAO/KhachHangDAO.java</file>
+            <file>file:/C:/Testing/src/TestAPI/DeleteNhanVienHandler.java</file>
+            <file>file:/C:/Testing/src/GUI/Panel/TaiKhoan.java</file>
             <file>file:/C:/Testing/src/BUS/TaiKhoanBUS.java</file>
             <file>file:/C:/Testing/src/BUS/NhaCungCapBUS.java</file>
-            <file>file:/C:/Testing/src/GUI/Login.java</file>
-            <file>file:/C:/Testing/src/GUI/Main.java</file>
+            <file>file:/C:/Testing/src/BUS/CTBaoHanhBUS.java</file>
+            <file>file:/C:/Testing/src/DAO/ChucNangDAO.java</file>
+            <file>file:/C:/Testing/src/GUI/Panel/SideMenu.java</file>
+            <file>file:/C:/Testing/src/BUS/ChucNangBUS.java</file>
+            <file>file:/C:/Testing/src/BUS/ThuongHieuBUS.java</file>
+            <file>file:/C:/Testing/src/GUI/Panel/PhieuNhap.java</file>
+            <file>file:/C:/Testing/src/BUS/SanPhamBUS.java</file>
+            <file>file:/C:/Testing/src/DAO/CTHoaDonDAO.java</file>
+            <file>file:/C:/Testing/src/helper/Formatter.java</file>
+            <file>file:/C:/Testing/src/DAO/SanPhamDAO.java</file>
+            <file>file:/C:/Testing/src/GUI/Panel/NhanVien.java</file>
+            <file>file:/C:/Testing/src/BUS/CTPhieuNhapBUS.java</file>
+            <file>file:/C:/Testing/src/DAO/CTPhieuNhapDAO.java</file>
+            <file>file:/C:/Testing/src/DAO/PhienBanSanPhamDAO.java</file>
+            <file>file:/C:/Testing/src/DAO/QuyenDAO.java</file>
+            <file>file:/C:/Testing/src/DAO/HoaDonDAO.java</file>
+            <file>file:/C:/Testing/src/DAO/TaiKhoanDAO.java</file>
+            <file>file:/C:/Testing/src/DAO/CTSanPhamDAO.java</file>
+            <file>file:/C:/Testing/src/BUS/CTHoaDonBUS.java</file>
+            <file>file:/C:/Testing/src/BUS/BaoHanhBUS.java</file>
+            <file>file:/C:/Testing/src/helper/JTableExporter.java</file>
+            <file>file:/C:/Testing/src/DTO/SanPhamDTO.java</file>
+            <file>file:/C:/Testing/src/BUS/NhanVienBUS.java</file>
+            <file>file:/C:/Testing/src/BUS/CTQuyenBUS.java</file>
+            <file>file:/C:/Testing/src/DAO/CTBaoHanhDAO.java</file>
+            <file>file:/C:/Testing/src/DAO/PhieuNhapDAO.java</file>
+            <file>file:/C:/Testing/src/DAO/CTQuyenDAO.java</file>
+            <file>file:/C:/Testing/src/DAO/ThuongHieuDAO.java</file>
+            <file>file:/C:/Testing/src/TestAPI/AddNhanVienHandler.java</file>
+            <file>file:/C:/Testing/src/GUI/Panel/SanPham.java</file>
+            <file>file:/C:/Testing/src/helper/Validator.java</file>
+            <file>file:/C:/Testing/src/DAO/NhaCungCapDAO.java</file>
+            <file>file:/C:/Testing/src/BUS/PhienBanSanPhamBUS.java</file>
+            <file>file:/C:/Testing/test/BUS/NhaCungCapBUSTest.java</file>
+            <file>file:/C:/Testing/test/BUS/TaiKhoanBUSTest.java</file>
+            <file>file:/C:/Testing/src/DAO/ThongKeDAO.java</file>
+            <file>file:/C:/Testing/src/TestAPI/GetNhanVienHandler.java</file>
+            <file>file:/C:/Testing/src/DAO/KhuyenMaiDAO.java</file>
+            <file>file:/C:/Testing/src/GUI/Dialog/SanPhamDialog.java</file>
+            <file>file:/C:/Testing/src/GUI/Dialog/ChonNhanVienDialog.java</file>
+            <file>file:/C:/Testing/src/DTO/CTHoaDonDTO.java</file>
+            <file>file:/C:/Testing/src/DAO/NhanVienDAO.java</file>
         </group>
     </open-files>
 </project-private>
