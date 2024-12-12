@@ -17,12 +17,13 @@ public class PhienBanSanPhamBUSTest {
  
     @Test
     public void ThemThanhCong() {
-        PhienBanSanPhamBUS pbsbBUS = new PhienBanSanPhamBUS();
-        PhienBanSanPhamDTO pbsb = new PhienBanSanPhamDTO(1, 3 , 8 , 256, " Titan tự nhiên 19 ", 3, 1 );
-        boolean expected = true;
-        boolean result = pbsbBUS.addNewPBSP(pbsb);
-          System.out.println("Dự kiến (expected): " + expected + " || Kết quả (result): " + result+ "\n");
-        assertEquals(expected,result);
+        PhienBanSanPhamBUS pbspBUS = new PhienBanSanPhamBUS();
+        int size = pbspBUS.getAll().size();
+        PhienBanSanPhamDTO pbsp = new PhienBanSanPhamDTO(1, 3 , 8 , 256, " Titan tự nhiên 78 ", 3, 1 );
+        assertTrue(pbspBUS.addNewPBSP(pbsp));
+        int result = pbspBUS.getAll().size();
+        int exp = size+1;
+        System.out.println("Dự kiến (expected): " + exp + " || Kết quả (result): " + result + "\n");
         
     
     }
@@ -30,48 +31,53 @@ public class PhienBanSanPhamBUSTest {
     
     @Test
     public void Ramlasoam() {
-        PhienBanSanPhamBUS pbsbBUS = new PhienBanSanPhamBUS();
-        PhienBanSanPhamDTO pbsb = new PhienBanSanPhamDTO(1, 3 , -8 , 256, " Titan tự nhiên 12 ", 3, 1 );
-        boolean expected = false;
-        boolean result = pbsbBUS.addNewPBSP(pbsb);
-          System.out.println("Dự kiến (expected): " + expected + " || Kết quả (result): " + result+ "\n");
-        assertEquals(expected,result);
+        
+        PhienBanSanPhamBUS pbspBUS = new PhienBanSanPhamBUS();
+        int size = pbspBUS.getAll().size();
+        PhienBanSanPhamDTO pbsp = new PhienBanSanPhamDTO(1, 3 , -8 , 256, " Titan tự nhiên 12 ", 3, 1 );
+        assertFalse(pbspBUS.addNewPBSP(pbsp));
+        int result = pbspBUS.getAll().size();
+        int exp = size;
+        System.out.println("Dự kiến (expected): " + exp + " || Kết quả (result): " + result + "\n");
         
     }
     
      @Test
     public void Romlasoam() {
-        PhienBanSanPhamBUS pbsbBUS = new PhienBanSanPhamBUS();
-        PhienBanSanPhamDTO pbsb = new PhienBanSanPhamDTO(1, 3 , 8 , -256, " Titan tự nhiên 12 ", 3, 1 );
-        boolean expected = false;
-        boolean result = pbsbBUS.addNewPBSP(pbsb);
-          System.out.println("Dự kiến (expected): " + expected + " || Kết quả (result): " + result+ "\n");
-        assertEquals(expected,result);
         
-    
+ 
+         PhienBanSanPhamBUS pbspBUS = new PhienBanSanPhamBUS();
+        int size = pbspBUS.getAll().size();
+        PhienBanSanPhamDTO pbsp = new PhienBanSanPhamDTO(1, 3 , 8 , -256, " Titan tự nhiên 12 ", 3, 1 );
+        assertFalse(pbspBUS.addNewPBSP(pbsp));
+        int result = pbspBUS.getAll().size();
+        int exp = size;
+        System.out.println("Dự kiến (expected): " + exp + " || Kết quả (result): " + result + "\n");
     }
     
     @Test
     public void MauSacDeTrong() {
-        PhienBanSanPhamBUS pbsbBUS = new PhienBanSanPhamBUS();
-        PhienBanSanPhamDTO pbsb = new PhienBanSanPhamDTO(1, 3 , 8 , 256, " ", 3, 1 );
-        boolean expected = false;
-        boolean result = pbsbBUS.addNewPBSP(pbsb);
-          System.out.println("Dự kiến (expected): " + expected + " || Kết quả (result): " + result+ "\n");
-        assertEquals(expected,result);
         
+        PhienBanSanPhamBUS pbspBUS = new PhienBanSanPhamBUS();
+        int size = pbspBUS.getAll().size();
+        PhienBanSanPhamDTO pbsp = new PhienBanSanPhamDTO(1, 3 , 8 , 256, " ", 3, 1 );
+        assertFalse(pbspBUS.addNewPBSP(pbsp));
+        int result = pbspBUS.getAll().size();
+        int exp = size;
+        System.out.println("Dự kiến (expected): " + exp + " || Kết quả (result): " + result + "\n");
     
     }
     
     @Test
     public void PhienBanSanPhamTonTai() {
-        PhienBanSanPhamBUS pbsbBUS = new PhienBanSanPhamBUS();
-        PhienBanSanPhamDTO pbsb = new PhienBanSanPhamDTO(1, 3 , 8 , 256, " Titan tự nhiên  ", 2, 1 );
-        boolean expected = false;
-        boolean result = pbsbBUS.addNewPBSP(pbsb);
-          System.out.println("Dự kiến (expected): " + expected + " || Kết quả (result): " + result+ "\n");
-        assertEquals(expected,result);
         
+        PhienBanSanPhamBUS pbspBUS = new PhienBanSanPhamBUS();
+        int size = pbspBUS.getAll().size();
+        PhienBanSanPhamDTO pbsp = new PhienBanSanPhamDTO(1, 3 , 8 , 256, " Titan tự nhiên  ", 2, 1 );
+        assertFalse(pbspBUS.addNewPBSP(pbsp));
+        int result = pbspBUS.getAll().size();
+        int exp = size;
+        System.out.println("Dự kiến (expected): " + exp + " || Kết quả (result): " + result + "\n");
     
     }
   
