@@ -13,6 +13,17 @@ import static org.junit.Assert.*;
  * @author ACER
  */
 public class NhaCungCapBUSTest {
+    @Test
+    public void ThemNhaCungCapThanhCong() {
+        NhaCungCapBUS bus = new NhaCungCapBUS();
+        int size = bus.getAll().size();
+        NhaCungCapDTO ncc = new NhaCungCapDTO(100, "Bui Quang Minh Hieu", "102 Hoa Hung", "0123456712", "12345677@gmail.com", 1);
+        assertTrue(bus.add(ncc));
+        int result = bus.getAll().size();
+        int exp = size + 1;
+        System.out.println("Dự kiến (expected): " + exp + " || Kết quả (result): " + result + "\n");
+
+    }
 
     @Test
     public void testTatCaDeuRong() {
@@ -121,18 +132,6 @@ public class NhaCungCapBUSTest {
         assertFalse(bus.add(ncc));
         int result = bus.getAll().size();
         int exp = size;
-        System.out.println("Dự kiến (expected): " + exp + " || Kết quả (result): " + result + "\n");
-
-    }
-
-    @Test
-    public void ThemNhaCungCapThanhCong() {
-        NhaCungCapBUS bus = new NhaCungCapBUS();
-        int size = bus.getAll().size();
-        NhaCungCapDTO ncc = new NhaCungCapDTO(100, "Bui Quang Minh Hieu", "102 Hoa Hung", "0123456712", "12345677@gmail.com", 1);
-        assertTrue(bus.add(ncc));
-        int result = bus.getAll().size();
-        int exp = size + 1;
         System.out.println("Dự kiến (expected): " + exp + " || Kết quả (result): " + result + "\n");
 
     }
