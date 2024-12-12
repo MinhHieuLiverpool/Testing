@@ -24,13 +24,56 @@ public class PhienBanSanPhamBUS {
         return this.pbSPList.size();
     }
     
-    public boolean addNewPBSP(PhienBanSanPhamDTO pbsp) {
-        if(pbspDAO.insert(pbsp) != 0) {
-            pbSPList.add(pbsp);
-            return true;
-        }
+
+    
+//    public boolean addNewPBSP(PhienBanSanPhamDTO pbsp) {
+//        if(pbspDAO.insert(pbsp) != 0) {
+//            pbSPList.add(pbsp);
+//            return true;
+//        }
+//        return false;
+//    }
+    
+    
+    //    <----> hiếu test <---->
+   public boolean addNewPBSP(PhienBanSanPhamDTO pbsp) {
+    // Kiểm tra tính hợp lệ
+    if (pbsp.getRam() < 0) {
+        System.out.println("Lỗi: RAM không được là số âm.");
         return false;
     }
+    if (pbsp.getRom() < 0) {
+        System.out.println("Lỗi: ROM không được là số âm.");
+        return false;
+    }
+    if (pbsp.getMau() == null || pbsp.getMau().trim().isEmpty()) {
+        System.out.println("Lỗi: Màu không được để trống.");
+        return false;
+    }
+    if (pbsp.getSoLuong() <= 1) {
+        System.out.println("Lỗi: Số lượng phải lớn hơn 1.");
+        return false;
+    }
+    
+     for (PhienBanSanPhamDTO existingPBSP : pbSPList) {
+        if (existingPBSP.getRam() == pbsp.getRam() &&
+            existingPBSP.getRom() == pbsp.getRom() &&
+            existingPBSP.getMau().equalsIgnoreCase(pbsp.getMau())) {
+            System.out.println("Lỗi: RAM, ROM, và màu đã trùng với hệ thống.");
+            return false;
+        }
+    }
+    
+    // Chèn vào DAO và cập nhật danh sách nếu kiểm tra hợp lệ thành công
+    if (pbspDAO.insert(pbsp) != 0) {
+        pbSPList.add(pbsp);
+        System.out.println("Thêm Thành Công Phiên bản sản phẩm!!");
+        return true;
+    }
+    return false;
+}
+ 
+    //    <----> hiếu test <---->
     
     public boolean addNewPBSPList(ArrayList<PhienBanSanPhamDTO> pbspList) {
         if(pbspDAO.insert(pbspList) != 0) {

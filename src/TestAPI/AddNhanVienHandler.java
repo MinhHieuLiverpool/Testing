@@ -52,14 +52,14 @@ public class AddNhanVienHandler implements HttpHandler {
 
             // Validate độ dài của họ và tên
             String ho = json.getString("ho").trim();
-            if ( ho.length() > 25) {
-                sendErrorResponse(exchange, 400, "Trường 'Họ' phải có độ dài bé hơn 25 ký tự!");
+            if ( ho.length() > 25 || ho.length() < 2) {
+                sendErrorResponse(exchange, 400, "Trường 'Họ' phải có độ dài từ 2 đến 25 ký tự!");
                 return;
             }
 
             String ten = json.getString("ten").trim();
-            if ( ten.length() > 25) {
-                sendErrorResponse(exchange, 400, "Trường 'Tên' phải có độ dài bé hơn 25 ký tự!");
+            if ( ten.length() > 25 || ten.length() < 2 ) {
+                sendErrorResponse(exchange, 400, "Trường 'Tên' phải có độ dài từ 2 đến 25 ký tự!");
                 return;
             }
 
